@@ -158,3 +158,6 @@ Key Python packages (see `requirements.txt` for complete list):
 ---
 
 **Disclaimer**: This project is for educational and research purposes only. Stock predictions should not be used as the sole basis for investment decisions. Always consult with financial advisors before making investment choices.
+### Project Preview
+
+![Netflix Stock Prediction](assets/netflix.jpg)
