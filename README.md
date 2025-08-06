@@ -1,56 +1,160 @@
-Predicting stock prices is one of the most fascinating and challenging problems in data science. With countless variables affecting the markets, combining machine learning with real-time data analysis and natural language interfaces can offer powerful insights. In this project, we explore how to predict the stock price of Netflix using an LSTM (Long Short-Term Memory) model, enhanced with the cognitive capabilities of IBM Watson.
-While researching tools and frameworks to build this system, we noticed a lack of practical, integrated examples that combine time series forecasting with interactive voice-enabled assistants. So, we built one — and here it is. If you're interested in machine learning, voice AI, or financial forecasting, we hope this project gives you a head start.
-This project brings together multiple advanced technologies to create a smart stock prediction assistant. Below is a breakdown of the core components and their roles:
-LSTM (Long Short-Term Memory) Neural Networks
-Purpose: Predict future Netflix stock prices based on historical data.
-Why LSTM? LSTM models are a type of recurrent neural network (RNN) designed to handle time series data effectively. They are capable of learning long-term dependencies and patterns in stock price trends.
-Implementation: The model is trained on past stock prices (Open, Close, High, Low) to forecast future values.
-IBM Watson Assistant
-Purpose: Provides a conversational interface (chatbot) to interact with users.
-Capabilities: Users can ask questions like “What is the predicted price for tomorrow?” or “Show me the stock trend for last week,” and the assistant responds accordingly.
-Benefit: Adds natural language processing and a user-friendly interface to the application.
- IBM Watson Speech-to-Text and Text-to-Speech
-Purpose: Enables voice input and audio responses.
-Usage: Users can speak their queries instead of typing, and the assistant replies with synthesized speech.
-Advantage: Enhances accessibility and provides a hands-free experience.
- Alpha Vantage API
-Purpose: Fetches real-time and historical stock market data.
-Why Alpha Vantage? It offers free access to stock data, is easy to integrate, and supports multiple time intervals (daily, weekly, etc.).
-Use Case: The historical data is preprocessed and fed into the LSTM model for training and prediction.
-Streamlit
-Purpose: Builds a fast, interactive web application for the assistant.
-Features: Includes text and voice chat options, dynamic graphs (candlestick charts), and prediction visualizations.
-Benefit: Makes deployment and user interaction seamless and visually appealing.
- Sentiment Analysis
-Purpose: Analyze public sentiment about Netflix from social media or news data.
-Value: Helps refine predictions by factoring in public mood and trends.
-Key Libraries Used :
-This project leverages a combination of data science, machine learning, NLP, and web development libraries. Below is a breakdown of the major Python libraries used:
- Data Handling & Visualization
-pandas – For data manipulation, analysis, and cleaning of stock price data.
-numpy – Used for numerical computations and array operations.
-matplotlib & seaborn – This is used to plot basic line charts and exploratory data visualizations.
-plotly – To create interactive candlestick charts and stock price visualizations.
- Machine Learning & Deep Learning
-scikit-learn – Used for data preprocessing like MinMax scaling and train-test splitting.
-tensorflow / keras – Implements the LSTM model for time series prediction.
-APIs and Data Sources
-alpha_vantage – For retrieving real-time and historical stock price data from the Alpha Vantage API.
-IBM Watson Services
-ibm_watson – Interfaces with IBM Watson services like Assistant, Speech-to-Text, and Text-to-Speech.
-ibm_cloud_sdk_core – Required for authentication with IBM Cloud services.
-Voice Input & Output
-speech_recognition – Captures and transcribes user voice input into text.
-pyttsx3 – Provides text-to-speech conversion for offline voice output.
-pyaudio – Required by speech_recognition for accessing microphone input.
-Web App Development
-streamlit – The primary framework for building interactive web apps with UI support for voice/text input and visualization.
-textblob / vaderSentiment – For sentiment analysis of text data related to Netflix.
-joblib – To save and load machine learning models efficiently.
+# Netflix Stock Prediction using LSTM and IBM Watson
+
+A machine learning project that predicts Netflix stock prices using Long Short-Term Memory (LSTM) neural networks integrated with IBM Watson services.
+
+## 🚀 Features
+
+- **LSTM Neural Network**: Advanced time series prediction model for stock price forecasting
+- **IBM Watson Integration**: Leverages IBM Watson's AI capabilities for enhanced predictions
+- **Interactive Web Interface**: Streamlit-based web application for easy interaction
+- **Audio Feedback**: Voice response system using audio files
+- **Real-time Visualization**: Candlestick charts and interactive plots
+- **User Input Processing**: Custom audio input handling for voice commands
+
+## 📁 Project Structure
+
+```
+netflix/
+├── __pycache__/           # Python cache files
+├── assets/                # Static assets and resources
+├── candlestick_chart.html # Interactive candlestick chart visualization
+├── input.wav             # Sample input audio file
+├── main.py               # Core prediction logic and model
+├── requirements.txt      # Python dependencies
+├── response.mp3          # Audio response file
+├── streamlit_app.py      # Streamlit web application
+├── user_input.wav        # User audio input processing
+└── README.md             # Project documentation
+```
+
+## 🛠️ Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/tamanna-dhir/Netflix-Stock-Prediction.git
+   cd Netflix-Stock-Prediction/netflix
+   ```
+
+2. **Install required dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Set up IBM Watson credentials**
+   - Create an IBM Watson account
+   - Configure your API keys and service credentials
+   - Update the configuration in your main application files
+
+## 🎯 Usage
+
+### Running the Streamlit Web App
+
+```bash
+streamlit run streamlit_app.py
+```
+
+This will launch the interactive web interface where you can:
+- Input stock prediction parameters
+- View real-time predictions
+- Interact with candlestick charts
+- Use voice input features
+
+### Running the Core Prediction Model
+
+```bash
+python main.py
+```
+
+This executes the main LSTM prediction model with IBM Watson integration.
+
+## 📊 Model Details
+
+### LSTM Architecture
+- **Model Type**: Long Short-Term Memory (LSTM) Neural Network
+- **Purpose**: Time series forecasting for Netflix stock prices
+- **Training Data**: Historical Netflix stock data
+- **Features**: Open, High, Low, Close prices, Volume
+
+### IBM Watson Integration
+- **Services Used**: IBM Watson AI services for enhanced prediction accuracy
+- **Benefits**: Improved model performance through cloud-based AI capabilities
+- **Real-time Processing**: Live data analysis and prediction updates
+
+## 🎨 Visualization Features
+
+- **Candlestick Charts**: Interactive HTML-based stock price visualization
+- **Real-time Updates**: Dynamic chart updates with new predictions
+- **User-friendly Interface**: Streamlit-powered web interface
+- **Audio Feedback**: Voice responses for user interactions
+
+## 📈 Key Components
+
+### main.py
+Core application containing:
+- LSTM model implementation
+- Data preprocessing pipelines
+- IBM Watson service integration
+- Prediction algorithms
+
+### streamlit_app.py
+Web interface featuring:
+- Interactive dashboard
+- User input forms
+- Real-time chart displays
+- Audio input/output handling
+
+### Audio Processing
+- Voice command recognition
+- Audio response generation
+- Real-time audio feedback system
+
+## 🔧 Dependencies
+
+Key Python packages (see `requirements.txt` for complete list):
+- `tensorflow` / `keras` - LSTM model implementation
+- `streamlit` - Web application framework
+- `pandas` - Data manipulation
+- `numpy` - Numerical computations
+- `plotly` - Interactive visualizations
+- `ibm-watson` - IBM Watson SDK
+- `yfinance` - Stock data fetching
+- `scikit-learn` - Machine learning utilities
+
+## 📋 Requirements
+
+- Python 3.7+
+- IBM Watson account and API credentials
+- Internet connection for real-time data
+- Audio input/output capabilities (for voice features)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Create a Pull Request
 
 
 
+## 🙏 Acknowledgments
+
+- IBM Watson for AI services
+- Netflix for providing historical stock data
+- TensorFlow/Keras community for LSTM implementation resources
+- Streamlit for the web application framework
 
 
 
+## 🚀 Future Enhancements
 
+- [ ] Multi-stock prediction support
+- [ ] Advanced technical indicators integration
+- [ ] Mobile app development
+- [ ] Real-time news sentiment analysis
+- [ ] Portfolio optimization features
+- [ ] Enhanced voice command capabilities
+
+---
+
+**Disclaimer**: This project is for educational and research purposes only. Stock predictions should not be used as the sole basis for investment decisions. Always consult with financial advisors before making investment choices.
